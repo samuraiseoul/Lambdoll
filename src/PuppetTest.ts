@@ -1,5 +1,5 @@
 import {Browser, Page, launch as BrowserBuilder} from "puppeteer";
-import * as Chromium from 'chrome-aws-lambda';
+import {default as Chromium} from 'chrome-aws-lambda';
 
 export default abstract class PuppetTest {
     private browser ?: Browser;
