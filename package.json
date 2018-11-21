@@ -1,6 +1,6 @@
 {
   "name": "lambdoll",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Puppeteer Lambda Testing using compressed Chromium",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

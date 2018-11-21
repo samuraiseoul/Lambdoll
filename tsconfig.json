@@ -6,13 +6,13 @@
     "outDir": "./lib",
     "declaration": true,
     "inlineSourceMap": true,
-    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true
   },
   "include": [
+    "./@types/**/*",
     "./src/**/*"
   ],
   "exclude": ["node_modules"]

@@ -1,5 +1,5 @@
 import {Browser, Page, launch as BrowserBuilder} from "puppeteer";
-import {default as Chromium} from 'chrome-aws-lambda';
+import Chromium from 'chrome-aws-lambda';
 
 export default abstract class PuppetTest {
     private browser ?: Browser;
@@ -31,7 +31,6 @@ export default abstract class PuppetTest {
      * as this one doesn't seemingly work well/at all locally.
      */
     private static async getBrowser() : Promise<Browser> {
-        console.log(Chromium.args);
         return BrowserBuilder({
             args: Chromium.args.concat('--disable-software-rasterizer').concat('--disable-gpu'),
             executablePath: await Chromium.executablePath,
