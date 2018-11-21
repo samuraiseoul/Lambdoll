@@ -16,7 +16,7 @@
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "prepare": "tsc"
+    "prepublish": "npm version patch && npm install && tsc && git push origin master"
   },
   "repository": {
     "type": "git",
