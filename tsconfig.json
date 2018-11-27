@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "UMD",
+    "module": "commonjs",
     "target": "es6",
     "esModuleInterop": true,
     "outDir": "./lib",
@@ -12,7 +12,6 @@
     "strict": true
   },
   "include": [
-    "./@types/**/*",
     "./src/**/*"
   ],
   "exclude": ["node_modules"]

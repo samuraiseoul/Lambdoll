@@ -23,6 +23,6 @@ class Test extends PuppetTest {
     }
 }
 
-let t = new Test();
+let test = new Test();
 
-t.run({}).catch(console.log);
+test.run({}).catch(console.log);
