@@ -19,7 +19,7 @@
     "preinstall": "npm run clearlibraries",
     "postinstall": "tsc",
     "clearlibraries": "rm -rf ./node_modules/ ./lib/",
-    "prepublishOnly": "npm version from-git"
+    "prepublishOnly": "npm version patch"
   },
   "repository": {
     "type": "git",
