@@ -16,7 +16,10 @@
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "prepublish": "tsc"
+    "preinstall": "npm run clearlibraries",
+    "postinstall": "tsc",
+    "clearlibraries": "rm -rf ./node_modules/ ./lib/",
+    "prepublishOnly": "npm version from-git"
   },
   "repository": {
     "type": "git",
