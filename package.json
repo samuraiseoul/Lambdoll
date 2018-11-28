@@ -6,13 +6,13 @@
   "types": "lib/index.d.ts",
   "private": false,
   "author": "Scott Lavigne",
-  "license": "GNU GPLv3",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "chrome-aws-lambda": "file:../../projects/chrome-aws-lambda"
+    "puppeteer": "^1.10.0",
+    "chrome-aws-lambda": "git+ssh://git@github.com:samuraiseoul/chrome-aws-lambda.git"
   },
   "devDependencies": {
     "@types/puppeteer": "^1.10.0",
-    "puppeteer": "^1.10.0",
     "tslint": "^5.11.0",
     "typescript": "^3.1.6"
   },
@@ -21,7 +21,7 @@
     "postinstall": "tsc",
     "lint": "tslint --project ./tsconfig.json",
     "clearlibraries": "rm -rf ./node_modules/ ./lib/",
-    "test": "npm install && node lib/tests/tests.js",
+    "test": "npm install && npm run lint && node lib/tests/tests.js",
     "prepublishOnly": "npm test && npm run lint && npm version patch",
     "postpublish": "git push origin master --tags"
   },
