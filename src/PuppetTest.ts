@@ -51,9 +51,3 @@ export default abstract class PuppetTest {
         });
     }
 }
-
-// TODO: Make a few more tests and then add a test parser from labda's event
-// TODO: git hook dispatcher(also use lambda maybe?)
-// TODO: add reporting for ran tests(sql or something, some website perhaps? report to github too)
-// TODO: some way to re-run tests, all that jazz
-// TODO: spin up a test version of site to use per run, also fixtures
