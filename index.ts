@@ -1,5 +1,5 @@
-import Runner from "./TestRunner";
-import Test from "./PuppetTest";
+import Runner from "./src/TestRunner";
+import Test from "./src/PuppetTest";
 
 export const TestRunner = Runner;
 export type TestRunner = Runner;

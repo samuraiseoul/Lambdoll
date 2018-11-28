@@ -12,7 +12,9 @@
     "strict": true
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./tests/**/*",
+    "./index.ts"
   ],
   "exclude": ["node_modules"]
 }

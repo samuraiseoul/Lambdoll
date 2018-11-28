@@ -3,26 +3,39 @@ import Chromium from 'chrome-aws-lambda';
 
 export default abstract class PuppetTest {
     private browser ?: Browser;
-    protected page ?: Page;
+    private page ?: Page;
 
-    protected abstract async setup(event : object) : Promise<void>;
+    protected abstract async setup() : Promise<void>;
 
-    protected abstract async teardown(event : object) : Promise<void>;
+    protected abstract async teardown() : Promise<void>;
 
-    protected async abstract test(event : object) : Promise<void>;
+    protected async abstract test() : Promise<void>;
 
-    public async run(event : object) : Promise<void> {
-        this.browser = await PuppetTest.getBrowser();
-        this.page = await this.browser.newPage();
-        await this.setup(event);
+    public async run() : Promise<void> {
+        await this.getBrowser();
+        await this.getPage();
+        await this.setup();
         try {
-            await this.test(event);
+            await this.test();
         } finally {
-            await this.teardown(event);
-            this.browser.close();
+            await this.teardown();
+            await (await this.getBrowser()).close();
         }
     }
 
+    protected async getPage() : Promise<Page> {
+        if(!this.page) {
+            this.page = await (await this.getBrowser()).newPage();
+        }
+        return this.page;
+    }
+
+    protected async getBrowser() : Promise<Browser> {
+        if(!this.browser) {
+            this.browser = await PuppetTest.buildBrowser();
+        }
+        return this.browser;
+    }
 
     /**
      * Chromium Aws Lambda(https://github.com/alixaxel/chrome-aws-lambda) is used due to
@@ -30,7 +43,7 @@ export default abstract class PuppetTest {
      * work needs to be done to see if we can still test locally using puppeteer's version
      * as this one doesn't seemingly work well/at all locally.
      */
-    private static async getBrowser() : Promise<Browser> {
+    private static async buildBrowser() : Promise<Browser> {
         return BrowserBuilder({
             args: Chromium.args.concat('--disable-software-rasterizer').concat('--disable-gpu'),
             executablePath: await Chromium.executablePath,

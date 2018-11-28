@@ -7,9 +7,9 @@ export default class TestRunner {
         return new TestClassPrototype();
     }
 
-    public static async runTest(testPath : string, event : object) : Promise<object> {
+    public static async runTest(testPath : string) : Promise<object> {
         let test = await TestRunner.buildTestInstance(testPath);
-        await test.run(event);
+        await test.run();
         return {
             'testSuccess' : true
         };
