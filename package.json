@@ -22,7 +22,7 @@
     "lint": "tslint --project ./tsconfig.json",
     "clearlibraries": "rm -rf ./node_modules/ ./lib/",
     "test": "npm install && npm run lint && node lib/tests/tests.js",
-    "prepublishOnly": "npm test && npm run lint && npm version patch",
+    "prepublishOnly": "npm test && npm version patch",
     "postpublish": "git push origin master --tags"
   },
   "repository": {
