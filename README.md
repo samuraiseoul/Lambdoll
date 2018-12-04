@@ -4,7 +4,7 @@ Lambdoll is a simple wrapper framework created to make running distributed brows
 tests using puppeteer in AWS Lambda easy.
 
 ##### IMPORTANT CAVEAT!
-When bundling to push to lambda, be sure to do your production npm install with the 
+When bundling to push to lambda, be sure to do your production npm install withsdf the 
 following environment parameters.
 
 ```
